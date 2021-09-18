@@ -1,11 +1,14 @@
 dist: trusty
-
 jobs:
   include:
-    - stage: build docker image
-      script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker build -t apt-cacher-ng .
-        - docker images
-        - docker tag apt-cacher-ng $DOCKER_USERNAME/apt-cacher-ng
-        - docker push $DOCKER_USERNAME/travis-ci-build-stages-demo
+  - stage: build docker image
+    script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker build -t apt-cacher-ng .
+    - docker images
+    - docker tag apt-cacher-ng $DOCKER_USERNAME/apt-cacher-ng
+    - docker push $DOCKER_USERNAME/travis-ci-build-stages-demo
+env:
+  global:
+  - secure: HzwA47L7egOeNbNXYjmNO5CRvaqKc7/Wc9hRTwklX20oaOiU50Q4yNIUVgiM1onYBHX0HsuSx36bCCc8XUozL6otO4bdbEKPm+jAzVKCR5djv5A9uiFnLct+pQBjO1Mr48q7fabko7OElwWoTdkzqxIylLyON12mQjOmyTyp4/sa1NeBNY/i+Vw1QBZhfPz0N2AUSTChqfw4ys2bRjXRN7i0WQXD7S1ncdqkSEq1eWdkhVVkUMP6MO2+EVFo3k9XKigdYJQdZmp/TLi8omNhfR1N/XIPU85+zPVNg8xPXaKMDBjrGT5IipVUDg5fGaEiCYne5JkvN387xSodV1WJfxXsxl4uEp6S+bkwoOzHpsKCTmHUoOnxSBSDl6Y9PzQs9yj73LetIVfq9xUrYDwOU7E0ydprOZz3K4mmWbwfR/RygYdG8PYYqB4omtn7MRBgSIScLOsV0q6MH2bVU5LM9iq+aqDNcADcn66qHom+jcs1DDFgGWq5y+qJUbv/xVL+X7E74Lji7ai9Tt7qX7QynRxqBsRIqHkmY0WMNiWXTUSTjNV/RPMJSk8hgNR2eGJaJSHjevBbbJZEhVeDC8n4b4kcHFvqOdPdFss6a/RkvF81jtINYiP5yPB5eubmXi17uuTyiuthjSiFNyPzC0nttHsicCt/sKhoeFGrLUby/Bw=
+  - secure: tdzPUUWBjX85eGLsF7a38k5w2kQfxvt0byBI8+WkTUHLc0RCcgBpLBd0Q7yBLL+ctbSk0w8JPdF/dRvrJ31I2JTemxYTSXQdqAr1XB0o6dH4EEC/VElpqNurhuB1monBO3kWh4IfsmbVMIyvl6iTckKRWyfv37hgxoBb3oC4alP0JYtCEEjZIfZxT4ZTSjfVGHcmzd1QyUrPmEcoGE4QxUITf8Bm5kCiMyjZ35kdPRRh+YvxPZC1gtAgaRMSbdDKQULxWRqqLgt7NslRYjjS1rVXKmKFyH0LER5wjJxkpMjGLkCm4qjgZyUTln6KxSVU6JYROsRZs2VpxrhdGBoKvtUr6OFuhrxpGlePBQ/cMPXjF6pNTafyPwwqSMDyigqAi+jpEqFLU7yjwh2ZupWgJIhE/z1m/vkU4PLCyE+hzgmOIb9FydLCTkC6yx9ilJ/tYgCUj7QzSJkkZQ4k//RMPZF56zpmxR9UrmhXuz2QSe3gJwvfm6DGJa5BrMDn8bOamUEhvzqyZxrGIX6GQpI5qCKUMXkV1BVkh5kkcFcNLAMh6IMeIV4cUWC4OgJTLmKHYRt1/L+3z/PNC8pJCjP071LY11EfnFSrl1+sdWXZ2x/6Vc9tU0kMEZpvMDIbkKaKYb9JFmMHSSOAGxmwTOuEjVKl56FAfiq9MfuaBLngR70=
