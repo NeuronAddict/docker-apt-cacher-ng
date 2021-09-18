@@ -1,0 +1,11 @@
+dist: trusty
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build -t apt-cacher-ng .
+        - docker images
+        - docker tag apt-cacher-ng $DOCKER_USERNAME/apt-cacher-ng
+        - docker push $DOCKER_USERNAME/travis-ci-build-stages-demo
