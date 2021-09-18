@@ -7,7 +7,7 @@ jobs:
     - docker build -t apt-cacher-ng .
     - docker images
     - docker tag apt-cacher-ng $DOCKER_USERNAME/apt-cacher-ng
-    - docker push $DOCKER_USERNAME/travis-ci-build-stages-demo
+    - docker push $DOCKER_USERNAME/apt-cacher-ng
 env:
   global:
   - secure: HzwA47L7egOeNbNXYjmNO5CRvaqKc7/Wc9hRTwklX20oaOiU50Q4yNIUVgiM1onYBHX0HsuSx36bCCc8XUozL6otO4bdbEKPm+jAzVKCR5djv5A9uiFnLct+pQBjO1Mr48q7fabko7OElwWoTdkzqxIylLyON12mQjOmyTyp4/sa1NeBNY/i+Vw1QBZhfPz0N2AUSTChqfw4ys2bRjXRN7i0WQXD7S1ncdqkSEq1eWdkhVVkUMP6MO2+EVFo3k9XKigdYJQdZmp/TLi8omNhfR1N/XIPU85+zPVNg8xPXaKMDBjrGT5IipVUDg5fGaEiCYne5JkvN387xSodV1WJfxXsxl4uEp6S+bkwoOzHpsKCTmHUoOnxSBSDl6Y9PzQs9yj73LetIVfq9xUrYDwOU7E0ydprOZz3K4mmWbwfR/RygYdG8PYYqB4omtn7MRBgSIScLOsV0q6MH2bVU5LM9iq+aqDNcADcn66qHom+jcs1DDFgGWq5y+qJUbv/xVL+X7E74Lji7ai9Tt7qX7QynRxqBsRIqHkmY0WMNiWXTUSTjNV/RPMJSk8hgNR2eGJaJSHjevBbbJZEhVeDC8n4b4kcHFvqOdPdFss6a/RkvF81jtINYiP5yPB5eubmXi17uuTyiuthjSiFNyPzC0nttHsicCt/sKhoeFGrLUby/Bw=
